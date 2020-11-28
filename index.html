@@ -1,73 +1,51 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Web Dispo</title>
+    
 </head>
-
 <body>
-    <input type="file" id="fileUpload" />
-	<input type="button" id="upload" value="Upload" onclick="UploadProcess()" />
-	<br/>
+    <div class="site-title">
+        <img class="site-logo" src="https://www.corrections.govt.nz/utility/images/doc-logo.png" alt="corrections logo">
+        <div class="site-headings">
+            <h1 class="main-heading">Otago Corrections Facility</h1>
+            <h2 class="sub-heading">Site Disposition</h2>
+        </div>
+    </div>
+    
+    <div class="button-container">
+        <label for="fileUpload" class="fileUploader">Upload Kronos Report</label>
+        <input type="file" id="fileUpload" accept=".xls,.xlsx" />
+    </div>
+    
+    <table id="weekTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Role</th>
+                <th>ICP</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
 
-	<div id="ExcelTable"></div>
-	
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
-<script type="text/javascript">
-    function UploadProcess() {
-        //Reference the FileUpload element.
-        var fileUpload = document.getElementById("fileUpload");
- 
-        //Validate whether File is valid Excel file.
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
-        if (regex.test(fileUpload.value.toLowerCase())) {
-            if (typeof (FileReader) != "undefined") {
-                var reader = new FileReader();
- 
-                //For Browsers other than IE.
-                if (reader.readAsBinaryString) {
-                    reader.onload = function (e) {
-                        GetTableFromExcel(e.target.result);
-                    };
-                    reader.readAsBinaryString(fileUpload.files[0]);
-                } else {
-                    //For IE Browser.
-                    reader.onload = function (e) {
-                        var data = "";
-                        var bytes = new Uint8Array(e.target.result);
-                        for (var i = 0; i < bytes.byteLength; i++) {
-                            data += String.fromCharCode(bytes[i]);
-                        }
-                        GetTableFromExcel(data);
-                    };
-                    reader.readAsArrayBuffer(fileUpload.files[0]);
-                }
-            } else {
-                alert("This browser does not support HTML5.");
-            }
-        } else {
-            alert("Please upload a valid Excel file.");
-        }
-    };
-    function GetTableFromExcel(data) {
-        //Read the Excel File data in binary
-        var workbook = XLSX.read(data, {
-            type: 'binary'
-        });
- 
-        //get the name of First Sheet.
-        var Sheet = workbook.SheetNames[0];
- 
-		var kronosData = XLSX.utils.sheet_to_json(workbook.Sheets[Sheet], {header:["name","b","c","d","e","rank","g","h","i","monday","k","l","m","tuesday","o","p","q","wednesday","s","t","thursday","v","w","friday","y","z","aa","saturday","ac","ad","ae","sunday","ag"], range:10});
- 
-		console.log(kronosData);
-     
-    };
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js" integrity="sha512-NerWxp37F9TtBS1k1cr2TjyC9c8Qh6ghgqVBOYXaahgnBkVT6a8KVbO05Z8+LnIIom4CJSSQTZ3VbL396scK5w==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="/js/kronos.js"></script>
+    <script src="./js/dispo.js"></script>
 </body>
 </html>

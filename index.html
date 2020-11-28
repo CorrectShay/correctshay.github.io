@@ -27,10 +27,13 @@
           </div>
         </div>
       </div>
-      <form class="d-flex mr-2">
-        <input type="file" class="form-control" id="fileUpload">
-        <label class="input-group-text" for="fileUpload">Upload</label>
-      </fprm>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option selected>Select a site then upload report</option>
+          <option value="1">OCF</option>
+          <option value="2">INV</option>
+          <option value="3">WHAN</option>
+          <option value="4">MANA</option>
+        </select>
     </nav>
     <div class="progress" style="height: 20px;">
       <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">No Kronos Data Loaded</div>

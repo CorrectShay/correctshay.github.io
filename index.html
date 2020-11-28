@@ -12,51 +12,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Kronos Web Dispo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link disabled" aria-current="page" href="#">Week View</a>
-            <a class="nav-link disabled" href="#">Day View</a>
-            <a class="nav-link disabled" href="#">Equipment</a>
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <div>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Kronos Web Dispo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link disabled" aria-current="page" href="#">Week View</a>
+                <a class="nav-link disabled" href="#">Day View</a>
+                <a class="nav-link disabled" href="#">Equipment</a>
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </div>
+            </div>
+            <div>
+              <label for="formFileLg" class="form-label">Large file input example</label>
+              <input class="form-control form-control-lg" id="formFileLg" type="file">
+            </div>
           </div>
+        </nav>
+
+        <div class="button-container">
+            <label for="fileUpload" class="fileUploader">Upload Kronos Report</label>
+            <input type="file" id="fileUpload" accept=".xls,.xlsx" />
         </div>
-        <div class="d-flex">
-          <label for="formFileLg" class="form-label">Large file input example</label>
-          <input class="form-control form-control-lg" id="formFileLg" type="file">
-        </div>
-      </div>
-    </nav>
-    
-    <div class="button-container">
-        <label for="fileUpload" class="fileUploader">Upload Kronos Report</label>
-        <input type="file" id="fileUpload" accept=".xls,.xlsx" />
+
+        <table id="weekTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Role</th>
+                    <th>ICP</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </div>
-    
-    <table id="weekTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Role</th>
-                <th>ICP</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js" integrity="sha512-NerWxp37F9TtBS1k1cr2TjyC9c8Qh6ghgqVBOYXaahgnBkVT6a8KVbO05Z8+LnIIom4CJSSQTZ3VbL396scK5w==" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>

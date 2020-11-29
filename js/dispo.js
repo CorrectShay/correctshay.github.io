@@ -56,7 +56,7 @@ function getShiftData(site) {
   db.collection(`prisons/${site}/shifts`).get().then( (snap) => {
     snap.forEach((doc) => {
       
-      console.log(doc);
+      var shift = doc.data();
       
       // Find a <table> element with id="myTable":
       var table = document.getElementById("weekTable");
@@ -77,16 +77,16 @@ function getShiftData(site) {
       var cell10 = row.insertCell(9);
 
       // Add some text to the new cells:
-      cell1.innerHTML = doc.id;
-      cell2.innerHTML = doc.role;
-      cell3.innerHTML = doc.equipment.icp.required ? "Y" : "";
-      cell4.innerHTML = !doc.kronos.managedByKronos ? doc.name : ""; // If shift is not managed by kronos return then assigned name
-      cell5.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
-      cell6.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
-      cell7.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
-      cell8.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
-      cell9.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
-      cell10.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      cell1.innerHTML = shift.id;
+      cell2.innerHTML = shift.role;
+      cell3.innerHTML = shift.equipment.icp.required ? "Y" : "";
+      cell4.innerHTML = !shift.kronos.managedByKronos ? doc.name : ""; // If shift is not managed by kronos return then assigned name
+      cell5.innerHTML = !shift.kronos.managedByKronos ? doc.name : "";
+      cell6.innerHTML = !shift.kronos.managedByKronos ? doc.name : "";
+      cell7.innerHTML = !shift.kronos.managedByKronos ? doc.name : "";
+      cell8.innerHTML = !shift.kronos.managedByKronos ? doc.name : "";
+      cell9.innerHTML = !shift.kronos.managedByKronos ? doc.name : "";
+      cell10.innerHTML = !shift.kronos.managedByKronos ? doc.name : "";
       
     });
   });

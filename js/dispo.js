@@ -56,6 +56,8 @@ function getShiftData(site) {
   db.collection(`prisons/${site}/shifts`).get().then( (snap) => {
     snap.forEach((doc) => {
       
+      console.log(doc);
+      
       // Find a <table> element with id="myTable":
       var table = document.getElementById("weekTable");
 

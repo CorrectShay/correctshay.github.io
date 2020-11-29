@@ -53,9 +53,11 @@ function refreshDispo() {
 };
 
 function getShiftData(site) {
-  var siteData = db.collection(site);
-  
-  console.log(siteData);
+  db.collection(`prisons/${site}/shifts`).get().then( (snap) => {
+    snap.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

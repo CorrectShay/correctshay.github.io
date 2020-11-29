@@ -84,12 +84,12 @@ function getShiftData(site) {
       cell2.innerHTML = shift.role;
       cell3.innerHTML = (shift.equipment && shift.equipment.icp && shift.equipment.icp.required) ? "Y" : "";
       cell4.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("monday", shift.kronos.label) : shift.name; // If shift is not managed by kronos return then assigned name
-      cell5.innerHTML = (!shift.kronos.managedByKronos || !shift.kronos) ? kronosFind("tuesday", shift.kronos.label) : shift.name;
-      cell6.innerHTML = (!shift.kronos.managedByKronos || !shift.kronos) ? kronosFind("wednesday", shift.kronos.label) : shift.name;
-      cell7.innerHTML = (!shift.kronos.managedByKronos || !shift.kronos) ? kronosFind("thursday", shift.kronos.label) : shift.name;
-      cell8.innerHTML = (!shift.kronos.managedByKronos || !shift.kronos) ? kronosFind("friday", shift.kronos.label) : shift.name;
-      cell9.innerHTML = (!shift.kronos.managedByKronos || !shift.kronos) ? kronosFind("saturday", shift.kronos.label) : shift.name;
-      cell10.innerHTML = (!shift.kronos.managedByKronos || !shift.kronos) ? kronosFind("sunday", shift.kronos.label) : shift.name;
+      cell5.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("tuesday", shift.kronos.label) : shift.name;
+      cell6.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("wednesday", shift.kronos.label) : shift.name;
+      cell7.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("thursday", shift.kronos.label) : shift.name;
+      cell8.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("friday", shift.kronos.label) : shift.name;
+      cell9.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("saturday", shift.kronos.label) : shift.name;
+      cell10.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("sunday", shift.kronos.label) : shift.name;
       
     });
   });

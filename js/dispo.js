@@ -110,7 +110,7 @@ document.addEventListener('change', (event) => {
   
     if (event.target.id !== 'siteSelect') return;
   
-    condole.log(event.target.value)
+    console.log(event.target.value)
   
     getShiftData(event.target.value.toLowerCase())
 }, false);

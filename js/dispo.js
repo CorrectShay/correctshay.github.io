@@ -75,9 +75,6 @@ function getShiftData(site) {
       var cell8 = row.insertCell(7);
       var cell9 = row.insertCell(8);
       var cell10 = row.insertCell(9);
-
-      
-      console.log(shift);
       
       // Add some text to the new cells:
       cell1.innerHTML = doc.id;
@@ -90,7 +87,6 @@ function getShiftData(site) {
       cell8.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("friday", shift.kronos.label) : shift.name;
       cell9.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("saturday", shift.kronos.label) : shift.name;
       cell10.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("sunday", shift.kronos.label) : shift.name;
-      
     });
   });
 }

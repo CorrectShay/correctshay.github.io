@@ -54,8 +54,8 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
             
             var noKronos = document.getElementById('noKronosData');
             var haveKronos = document.getElementById('haveKronosData');
-            noKronos.classList.add('hidden');
-            haveKronos.classList.remove('hidden');
+            noKronos.classList.add('collapse');
+            haveKronos.classList.remove('collapse');
         };
         fileReader.readAsBinaryString(selectedFile);
     }

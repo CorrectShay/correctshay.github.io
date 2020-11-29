@@ -52,8 +52,10 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
             
             refreshDispo();
             
-            var kronosAlert = document.getElementById('kronosAlert')
-            kronosAlert.classList.add('hidden');
+            var noKronos = document.getElementById('noKronosData');
+            var haveKronos = document.getElementById('haveKronosData');
+            noKronos.classList.add('hidden');
+            haveKronos.classList.remove('hidden');
         };
         fileReader.readAsBinaryString(selectedFile);
     }

@@ -41,8 +41,8 @@
             Upload Kronos Data <input id="fileUpload" type="file" accept=".xls,.xlsx" hidden>
         </label>
     </nav>
-    <div class="progress" style="height: 20px;">
-      <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">No Kronos Data Loaded</div>
+    <div id="noKronosData" class="alert alert-danger" role="alert">
+      There is no kronos data loaded.  Only permanently allocated shifts will show until kronos data is uploaded
     </div>
     
     <div class="container-fluid bg-light">

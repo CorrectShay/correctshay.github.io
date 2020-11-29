@@ -1,6 +1,6 @@
 var selectedFile;
 var kronosData;
-
+    
 document.getElementById('fileUpload').addEventListener('change', (event) => {
     selectedFile = event.target.files[0];
 

@@ -59,7 +59,7 @@ function getShiftData(site) {
       var shift = doc.data();
       
       // Find a <table> element with id="myTable":
-      var table = document.getElementById("weekTable");
+      var table = document.getElementById("weekTableBody");
 
       // Create an empty <tr> element and add it to the 1st position of the table:
       var row = table.insertRow(-1);

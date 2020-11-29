@@ -52,6 +52,12 @@ function refreshDispo() {
   }
 };
 
+function getShiftData(site) {
+  var siteData = db.collection(site);
+  
+  console.log(siteData);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Loop through each object in the dispo template
     for (i = 0; i <= dispoTemplate.length -1; i++) {

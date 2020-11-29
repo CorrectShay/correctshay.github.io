@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 
-document.addEventListener('input', (event) => {
+document.addEventListener('change', (event) => {
     console.log(event.target.id);
   
     if (event.target.id !== 'siteSelect') return;

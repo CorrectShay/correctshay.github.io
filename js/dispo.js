@@ -106,12 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('change', (event) => {
-    console.log(event.target.id);
-  
+    // Return if this isn't the site dropdown selector
     if (event.target.id !== 'siteSelect') return;
+ 
+    // Clear out any previous table rows
+    clearWeekTable()
   
-    console.log(event.target.value)
-  
+    // Get the shifts for the newly selected site and append them to the empty table
     getShiftData(event.target.value.toLowerCase())
 }, false);
 

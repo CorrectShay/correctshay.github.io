@@ -106,7 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('input', (event) => {
+    console.log(event.target.id);
+  
     if (event.target.id !== 'siteSelect') return;
+  
+    condole.log(event.target.value)
   
     getShiftData(event.target.value.toLowerCase())
 }, false);

@@ -76,6 +76,9 @@ function getShiftData(site) {
       var cell9 = row.insertCell(8);
       var cell10 = row.insertCell(9);
 
+      
+      console.log(shift);
+      
       // Add some text to the new cells:
       cell1.innerHTML = shift.id;
       cell2.innerHTML = shift.role;

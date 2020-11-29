@@ -55,34 +55,42 @@ function refreshDispo() {
 function getShiftData(site) {
   db.collection(`prisons/${site}/shifts`).get().then( (snap) => {
     snap.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
+      
+      // Find a <table> element with id="myTable":
+      var table = document.getElementById("weekTable");
+
+      // Create an empty <tr> element and add it to the 1st position of the table:
+      var row = table.insertRow(-1);
+
+      // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      var cell6 = row.insertCell(5);
+      var cell7 = row.insertCell(6);
+      var cell8 = row.insertCell(7);
+      var cell9 = row.insertCell(8);
+      var cell10 = row.insertCell(9);
+
+      // Add some text to the new cells:
+      cell1.innerHTML = doc.id;
+      cell2.innerHTML = doc.role;
+      cell3.innerHTML = doc.equipment.icp.required ? "Y" : "";
+      cell4.innerHTML = !doc.kronos.managedByKronos ? doc.name : ""; // If shift is not managed by kronos return then assigned name
+      cell5.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      cell6.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      cell7.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      cell8.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      cell9.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      cell10.innerHTML = !doc.kronos.managedByKronos ? doc.name : "";
+      
     });
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Loop through each object in the dispo template
-    for (i = 0; i <= dispoTemplate.length -1; i++) {
-        
-        // Get each object in numberical order and append to the table
-        myObj = dispoTemplate[i];
-
-        newRow = `
-                <tr id="${myObj.id}">
-                    <td class="dispoID">${myObj.id}</td>
-                    <td class="role">${myObj.role}</td>
-                    <td class="icp">${myObj.icp}</td>
-                    <td class="monday">${myObj.shiftLabel}</td>
-                    <td class="tuesday">${myObj.shiftLabel}</td>
-                    <td class="wednesday">${myObj.shiftLabel}</td>
-                    <td class="thursday">${myObj.shiftLabel}</td>
-                    <td class="friday">${myObj.shiftLabel}</td>
-                    <td class="saturday">${myObj.shiftLabel}</td>
-                    <td class="sunday">${myObj.shiftLabel}</td>
-                </tr>
-        `
-
-        $('#weekTable tbody').append(newRow);
-    }
+  
 });
 

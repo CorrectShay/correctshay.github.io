@@ -82,7 +82,7 @@ function getShiftData(site) {
       // Add some text to the new cells:
       cell1.innerHTML = doc.id;
       cell2.innerHTML = shift.role;
-      cell3.innerHTML = shift.equipment.icp.required ? "Y" : "";
+      cell3.innerHTML = (shift.equipment && shift.equipment.icp && shift.equipment.icp.required) ? "Y" : "";
       cell4.innerHTML = !shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label); // If shift is not managed by kronos return then assigned name
       cell5.innerHTML = !shift.kronos.managedByKronos ? shift.name : kronosFind("tuesday", shift.kronos.label);
       cell6.innerHTML = !shift.kronos.managedByKronos ? shift.name : kronosFind("wednesday", shift.kronos.label);

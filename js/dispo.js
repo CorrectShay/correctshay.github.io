@@ -95,7 +95,19 @@ function getShiftData(site) {
   });
 }
 
+function clearWeekTable() {
+    var tableBody = document.getElementById("weekTableBody");
+  
+    return tableBody.innerHTML = ""
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   
 });
+
+document.addEventListener('input', (event) => {
+    if (event.target.id !== 'siteSelect') return;
+  
+    getShiftData(event.target.value.toLowerCase())
+}, false);
 

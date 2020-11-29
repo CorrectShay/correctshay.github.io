@@ -83,13 +83,13 @@ function getShiftData(site) {
       cell1.innerHTML = doc.id;
       cell2.innerHTML = shift.role;
       cell3.innerHTML = shift.equipment.icp.required ? "Y" : "";
-      cell4.innerHTML = shift.kronos.managedByKronos ? shift.name : ""; // If shift is not managed by kronos return then assigned name
-      cell5.innerHTML = shift.kronos.managedByKronos ? shift.name : "";
-      cell6.innerHTML = shift.kronos.managedByKronos ? shift.name : "";
-      cell7.innerHTML = shift.kronos.managedByKronos ? shift.name : "";
-      cell8.innerHTML = shift.kronos.managedByKronos ? shift.name : "";
-      cell9.innerHTML = shift.kronos.managedByKronos ? shift.name : "";
-      cell10.innerHTML = shift.kronos.managedByKronos ? shift.name : "";
+      cell4.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label); // If shift is not managed by kronos return then assigned name
+      cell5.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label);
+      cell6.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label);
+      cell7.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label);
+      cell8.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label);
+      cell9.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label);
+      cell10.innerHTML = shift.kronos.managedByKronos ? shift.name : kronosFind("monday", shift.kronos.label);
       
     });
   });

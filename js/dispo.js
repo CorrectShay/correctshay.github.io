@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 
-shiftLabel.addEventListener('shown.bs.modal', (e) => {
+shiftModal.addEventListener('shown.bs.modal', (e) => {
     var dataID = e.relatedTarget.getAttribute('data-id')
   
     console.log(dataID);

@@ -1,3 +1,4 @@
+const shiftModal = document.getElementById('shiftModal');
 var lastUpate
 
 function getShiftData(site) {
@@ -21,9 +22,9 @@ function getShiftData(site) {
 
       // Create an empty <tr> element and add it to the 1st position of the table:
       var row = table.insertRow(-1);
-      
+      row.setAttribute('data-id', `${doc.id}`);
       row.setAttribute('data-toggle', 'modal');
-      row.setAttribute('data-target', '#exampleModal');
+      row.setAttribute('data-target', '#shiftModal');
 
       // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
       var cell1 = row.insertCell(0);
@@ -60,4 +61,11 @@ function clearWeekTable() {
 document.addEventListener("DOMContentLoaded", () => {
   
 });
+
+shiftLabel.addEventListener('shown.bs.modal', (e) => {
+    var dataID = e.relatedTarget.getAttribute('data-id')
+  
+    console.log(dataID);
+});
+
 

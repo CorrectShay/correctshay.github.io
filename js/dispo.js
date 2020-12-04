@@ -76,8 +76,8 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
       if (doc.exists) {
         var data = doc.data();
         
-        description.innerHTML(data.role)
-        label.innerHTML(data.kronos.label)
+        description.value = data.role
+        label.value = data.kronos.label
       } else {
         console.log('Document not found'); 
       }

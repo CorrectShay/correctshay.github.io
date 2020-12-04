@@ -70,9 +70,9 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
     var dataID = e.relatedTarget.getAttribute('data-id');
     var description = document.getElementById('shiftDescription');
     var label = document.getElementById('shiftLabel');
-    var docRef = db.collection(`prisons/${currentSite}/shifts/${dataID}`);
+    var docRef = db.collection(`prisons/${currentSite}/shifts`);
     
-    docRef.get().then( (doc) => {
+    docRef.doc(`${dataID}`).get().then( (doc) => {
       if (doc.exists) {
         var data = doc.data();
         

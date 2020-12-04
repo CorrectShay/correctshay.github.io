@@ -78,39 +78,14 @@
             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon1">@</span>
-              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <span class="input-group-text" id="basic-addon2">@example.com</span>
-            </div>
-
-            <label for="basic-url" class="form-label">Your vanity URL</label>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
-
-            <div class="input-group mb-3">
-              <span class="input-group-text">$</span>
-              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-              <span class="input-group-text">.00</span>
-            </div>
-
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-              <span class="input-group-text">@</span>
-              <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-            </div>
-
-            <div class="input-group">
-              <span class="input-group-text">With textarea</span>
-              <textarea class="form-control" aria-label="With textarea"></textarea>
-            </div>
-          </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="shiftDescription" placeholder="e.g. 8-18 Runner 1">
+                  <label for="floatingInput">Shift Description</label>
+                </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="shiftLabel" placeholder="SEC-R1">
+                  <label for="floatingPassword">Kronos Shift Label</label>
+                </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>

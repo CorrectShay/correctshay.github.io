@@ -78,6 +78,7 @@
             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+                <legend class="pt-3">General Shift Details</legend>
                 <div class="row g-2">
                   <div class="col-md">
                     <div class="form-floating">
@@ -93,6 +94,16 @@
                       <label for="shiftUnit">Unit for Grouping</label>
                     </div>
                   </div>
+                      <div class="d-flex align items-center text-align-center pt-1">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="kronosOpt" value="kronos">
+                          <label class="form-check-label" for="inlineRadio1">Managed by Kronos</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="permanentOpt" value="permanent">
+                          <label class="form-check-label" for="inlineRadio2">Permanent Allocation</label>
+                        </div>    
+                    </div>
                 </div>
                 <legend class="pt-3">Equipment</legend>
                 <div class="d-flex align-items-center pt-1">
@@ -164,17 +175,6 @@
                           <label for="restraintID">Handcuffs Number</label>
                         </div>
                     </div>
-                </div>
-                <legend class="pt-3">Kronos or Permanent</legend>
-                <div class="d-flex align items-center text-align-center pt-1">
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="kronosOpt" value="kronos">
-                      <label class="form-check-label" for="inlineRadio1">Managed by Kronos</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="permanentOpt" value="permanent">
-                      <label class="form-check-label" for="inlineRadio2">Permanent Allocation</label>
-                    </div>    
                 </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

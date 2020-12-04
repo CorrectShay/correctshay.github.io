@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 shiftModal.addEventListener('shown.bs.modal', (e) => {
     var dataID = e.relatedTarget.getAttribute('data-id');
-    var description = document.getElementByID('shiftDescription');
-    var label = document.getElementByID('shiftLabel');
+    var description = document.getElementById('shiftDescription');
+    var label = document.getElementById('shiftLabel');
     var docRef = db.collection(`prisons/${currentSite}/shifts/${dataID}`);
     
     docRef.get().then( (doc) => {

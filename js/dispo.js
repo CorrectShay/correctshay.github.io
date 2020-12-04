@@ -1,4 +1,6 @@
 const shiftModal = document.getElementById('shiftModal');
+var currentSite
+var currentSiteUnits
 var lastUpate
 
 function getShiftData(site) {
@@ -7,8 +9,9 @@ function getShiftData(site) {
 
   db.collection(`prisons`).doc(site).get().then( doc => {
       var data = doc.data()
-
+      
       document.getElementById('pageTitle').innerHTML = data.name;
+      currentSiteUnits = data.units;
   });
 
   //Appens the table with shift information from fire store
@@ -48,6 +51,7 @@ function getShiftData(site) {
       cell8.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Sat", shift.kronos.label) : shift.name;
       cell9.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Sun", shift.kronos.label) : shift.name;
       
+      currentSite = site;      
     });
   });
 }
@@ -63,9 +67,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 shiftModal.addEventListener('shown.bs.modal', (e) => {
-    var dataID = e.relatedTarget.getAttribute('data-id')
-  
-    console.log(dataID);
+    var dataID = e.relatedTarget.getAttribute('data-id');
+    var description = document.getElementByID('shiftDescription');
+    var label = document.getElementByID('shiftLabel');
+    var docRef = db.collection(`prisons/${currentSite}/shifts/${dataID}`);
+    
+    docRef.get().then( (doc) => {
+      if (doc.exists) {
+        var data = doc.data();
+        
+        description.innerHTML(data.role)
+        label.innerHTML(data.kronos.label)
+      } else {
+        console.log('Document not found'); 
+      }
+    }).catch( (error) => {
+      console.log("Error getting document: ", error);
+    });
 });
 
 

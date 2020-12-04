@@ -21,7 +21,7 @@ function getShiftData(site) {
 
       // Create an empty <tr> element and add it to the 1st position of the table:
       var row = table.insertRow(-1);
-      row.id = doc.id;
+      
       row.setAttribute('data-id', `${doc.id}`);
       row.setAttribute('data-toggle', 'modal');
       row.setAttribute('data-target', '#modal');

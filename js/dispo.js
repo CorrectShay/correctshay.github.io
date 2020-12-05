@@ -67,6 +67,9 @@ function updateUnitSelect() {
   
     // Clear previous entries  
     unitSelect.innerHTML = '';
+    
+    unitSelect.appendChild('<option>Select a unit</option>');
+  
   
     for (var i = 0; i < currentSiteUnits.length; i++) {
         var option = document.createElement('option');

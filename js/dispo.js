@@ -203,7 +203,7 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
         permanent.checked = data.kronos.managedByKronos ? false : true;
         kronos.checked = data.kronos.managedByKronos ? true : false;
         essential.checked = data.kronos.essentialShift;
-        label.value = data.kronos.label;
+        label.value = data.kronos.managedByKronos ? data.kronos.label : data.name;
         
         // Equipment Check Boxes
         radioCheck.checked = data.equipment.radio.required;

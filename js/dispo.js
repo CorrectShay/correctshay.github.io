@@ -119,6 +119,8 @@ function submitModal() {
             }
         }
     }
+    
+    writeToDB(uid.value, data);
 }
 
 function writeToDB(id, data) {

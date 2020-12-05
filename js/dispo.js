@@ -84,13 +84,13 @@ function submitModal() {
   
   
     var data = {
-        name: "sds",
+        name: permanent.checked ? label.value : '',
         role: description.value,
         unit: unit.value,
         kronos: {
             essentialShift: essential.checked,
             managedByKronos: kronos.checked,
-            label: label.value
+            label: kronos.checked ? label.value : ''
         },
         equipment: {
             radio: {

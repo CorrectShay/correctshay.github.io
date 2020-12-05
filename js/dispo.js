@@ -102,6 +102,8 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
     var dataID = e.relatedTarget.getAttribute('data-id');
     var description = document.getElementById('shiftDescription');
     var unit = document.getElementById('shiftUnit');
+    var label = document.getElementById('kronosLabel');
+    var uid = document.getElementById('uid');
     var permanent = document.getElementById('permanentShift');
     var kronos = document.getElementById('kronosShift');
     var essential = document.getElementById('essentialShift');
@@ -124,11 +126,13 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
       if (doc.exists) {
         var data = doc.data();
         
+        uid.value = doc.id;
         description.value = data.role;
         unit.value = data.unit;
         permanent.checked = data.kronos.managedByKronos ? false : true;
         kronos.checked = data.kronos.managedByKronos ? true : false;
         essential.checked = data.kronos.essentialShift;
+        label.value = data.kronos.label;
         
         // Equipment Check Boxes
         radioCheck.checked = data.equipment.radio.required;

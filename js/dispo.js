@@ -112,7 +112,7 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
       if (doc.exists) {
         var data = doc.data();
         
-        description = data.role;
+        description.value = data.role;
         unit.value = data.unit;
         permanent.checked = data.kronos.managedByKronos ? false : true;
         kronos.checked = data.kronos.managedByKronos ? true : false;

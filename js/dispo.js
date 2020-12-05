@@ -62,6 +62,18 @@ function clearWeekTable() {
     return tableBody.innerHTML = ""
 }
 
+function writeToDB(id, data) {
+  if (currentSite) {
+      db.collection(`prisons/${currentSite}/shifts`).doc(id).set(data).then( () => {
+        console.log('New shift added to DB');
+      }).catch( (error) => {
+        console.error("Error writing to DB:", error);
+      });
+  } else {
+      return console.log('Attempted to create new shift but no current site was loaded')
+  }
+}
+
 function updateUnitSelect() {
     var unitSelect = document.getElementById('shiftUnit');
   

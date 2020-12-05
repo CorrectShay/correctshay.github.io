@@ -1,6 +1,6 @@
 const shiftModal = document.getElementById('shiftModal');
 var currentSite
-var currentSiteUnits
+var currentSiteUnits = []
 var lastUpate
 
 function getShiftData(site) {
@@ -62,6 +62,17 @@ function clearWeekTable() {
     return tableBody.innerHTML = ""
 }
 
+function updateUnitSelect() {
+    var unitSelect = document.getElementById('shiftUnit');
+  
+    for (var i = 0; i < currentSiteUnits.length; i++) {
+        var option = document.createElement('option');
+        option.value = currentSiteUnits[i];
+        option.text = currentSiteUnits[i];
+        unitSelect.appendChild(option);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   
 });
@@ -72,12 +83,13 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
     var label = document.getElementById('shiftLabel');
     var docRef = db.collection(`prisons/${currentSite}/shifts`);
     
+    // Update unit select menu
+    updateUnitSelect();
+  
     docRef.doc(`${dataID}`).get().then( (doc) => {
       if (doc.exists) {
         var data = doc.data();
         
-        description.value = data.role
-        label.value = data.kronos.label
       } else {
         console.log('Document not found'); 
       }

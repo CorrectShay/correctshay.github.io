@@ -65,6 +65,9 @@ function clearWeekTable() {
 function updateUnitSelect() {
     var unitSelect = document.getElementById('shiftUnit');
   
+    // Clear previous entries  
+    unitSelect.innerHTML = '';
+  
     for (var i = 0; i < currentSiteUnits.length; i++) {
         var option = document.createElement('option');
         option.value = currentSiteUnits[i];

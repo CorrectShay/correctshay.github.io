@@ -127,6 +127,8 @@ function writeToDB(id, data) {
   if (currentSite) {
       db.collection(`prisons/${currentSite}/shifts`).doc(id).set(data).then( () => {
         console.log('New shift added to DB');
+        clearWeekTable();
+        getShiftData(currentSite);
       }).catch( (error) => {
         console.error("Error writing to DB:", error);
       });

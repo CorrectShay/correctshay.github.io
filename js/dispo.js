@@ -62,6 +62,65 @@ function clearWeekTable() {
     return tableBody.innerHTML = ""
 }
 
+function submitModal() {
+    var description = document.getElementById('shiftDescription');
+    var unit = document.getElementById('shiftUnit');
+    var label = document.getElementById('kronosLabel');
+    var uid = document.getElementById('uid');
+    var permanent = document.getElementById('permanentShift');
+    var kronos = document.getElementById('kronosShift');
+    var essential = document.getElementById('essentialShift');
+    var radioCheck = document.getElementById('radioCheck');
+    var radioID = document.getElementById('radioID');
+    var keysCheck = document.getElementById('keysCheck');
+    var keysID = document.getElementById('keysID');
+    var icpCheck = document.getElementById('icpCheck');
+    var icpID = document.getElementById('icpID');
+    var obcCheck = document.getElementById('obcCheck');
+    var obcID = document.getElementById('obcID');
+    var restraintCheck = document.getElementById('restraintCheck');
+    var restraintID = document.getElementById('restraintID');
+    var docRef = db.collection(`prisons/${currentSite}/shifts`);  
+  
+  
+    var data = {
+        name: "sds",
+        role: description.value,
+        unit: unit.value,
+        kronos: {
+            essentialShift: essential.checked,
+            managedByKronos: kronos.checked,
+            label: label.value
+        },
+        equipment: {
+            radio: {
+                required: radioCheck.checked,
+                radioid: radioID.value
+            },
+            keys: {
+                required: keysCheck.checked,
+                keyid: keysID.value
+            },
+            icp: {
+                required: icpCheck.checked,
+                icpid: icpID.value
+            },
+            obc: {
+                required: obcCheck.checked,
+                obcid: obcID.value
+            },
+            restraints: {
+                required: restraintCheck.checked,
+                restraintid: restraintID.value
+            },
+            duressAlarm: {
+                required: false,
+                duressid: ''
+            }
+        }
+    }
+}
+
 function writeToDB(id, data) {
   if (currentSite) {
       db.collection(`prisons/${currentSite}/shifts`).doc(id).set(data).then( () => {

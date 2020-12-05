@@ -43,7 +43,7 @@ function getShiftData(site) {
       // Add some text to the new cells:
       cell1.innerHTML = doc.id;
       cell2.innerHTML = shift.role;
-      cell2.className = 'text-align-left';
+      cell2.className = 'text-left';
       cell3.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Mon", shift.kronos.label) : shift.name; // If shift is not managed by kronos return then assigned name
       cell3.innerHTML === 'Not Found' ? cell3.className = 'bg-danger text-light' : null;
       cell4.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Tue", shift.kronos.label) : shift.name;

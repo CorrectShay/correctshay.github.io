@@ -89,7 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
 shiftModal.addEventListener('shown.bs.modal', (e) => {
     var dataID = e.relatedTarget.getAttribute('data-id');
     var description = document.getElementById('shiftDescription');
-    var label = document.getElementById('shiftLabel');
+    var unit = document.getElementById('shiftUnit');
+    var permanent = document.getElementById('permanentShift');
+    var kronos = document.getElementById('kronosShift');
+    var essential = document.getElementById('essentialShift');
+    var radioCheck = document.getElementById('radioCheck');
+    var radioID = document.getElementById('radioID');
+    var keysCheck = document.getElementById('keysCheck');
+    var keysID = document.getElementById('keysID');
+    var icpCheck = document.getElementById('icpCheck');
+    var icpID = document.getElementById('icpID');
+    var obcCheck = document.getElementById('obcCheck');
+    var obcID = document.getElementById('obcID');
+    var restraintCheck = document.getElementById('restraintCheck');
+    var restraintID = document.getElementById('restraintID');
     var docRef = db.collection(`prisons/${currentSite}/shifts`);
     
     // Update unit select menu
@@ -98,6 +111,26 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
     docRef.doc(`${dataID}`).get().then( (doc) => {
       if (doc.exists) {
         var data = doc.data();
+        
+        description = data.role;
+        unit.value = data.unit;
+        permanent.checked = data.kronos.managedByKronos ? false : true;
+        kronos.checked = data.kronos.managedByKronos ? true : false;
+        essential.checked = data.kronos.essentialShift;
+        
+        // Equipment Check Boxes
+        radioCheck.checked = data.equipment.radio.required;
+        keysCheck.checked = data.equipment.keys.required;
+        icpCheck.checked = data.equipment.icp.required;
+        obcCheck.checked = data.equipment.obc.required;
+        restraintCheck.checked = data.equipment.restraints.required;
+        
+        // Equipment ID inputs
+        radioID.value = data.equipment.radio.radioid;
+        keysID.value = data.equipment.keys.keyid;
+        icpID.value = data.equipment.icp.icpid;
+        obcID.value = data.equipment.obc.obcid;
+        restraintID.value = data.equipment.restraints.restraintid;
         
       } else {
         console.log('Document not found'); 

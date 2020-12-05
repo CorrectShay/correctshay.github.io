@@ -214,10 +214,15 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
         
         // Equipment ID inputs
         radioID.value = data.equipment.radio.radioid;
+        radioID.disabled = radioCheck.checked;
         keysID.value = data.equipment.keys.keyid;
+        keysID.disabled = keysCheck.checked;
         icpID.value = data.equipment.icp.icpid;
+        icpID.disabled = icpCheck.checked;
         obcID.value = data.equipment.obc.obcid;
+        obcID.disabled = obcCheck.checked;
         restraintID.value = data.equipment.restraints.restraintid;
+        restraintID.disabled = restraintCheck.checked;
         
       } else {
         console.log('Document not found'); 

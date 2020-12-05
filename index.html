@@ -78,7 +78,7 @@
             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-                <legend class="pt-3">General Shift Details</legend>
+                <legend>General Shift Details</legend>
                 <div class="row g-2">
                   <div class="col-md">
                     <div class="form-floating">
@@ -94,15 +94,23 @@
                       <label for="shiftUnit">Unit for Grouping</label>
                     </div>
                   </div>
-                      <div class="d-flex align items-center text-align-center pt-1">
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="kronosOpt" value="kronos">
-                          <label class="form-check-label" for="inlineRadio1">Managed by Kronos</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="permanentOpt" value="permanent">
-                          <label class="form-check-label" for="inlineRadio2">Permanent Allocation</label>
-                        </div>    
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="shiftType" id="permanentShift" value="permanent" checked>
+                      <label class="form-check-label" for="permanentShift">
+                        Permanently Allocated Shift
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="shiftType" id="kronosShift" value="kronos">
+                      <label class="form-check-label" for="kronosShift">
+                        Kronos Managed Shift
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="essentialShift" disabled>
+                      <label class="form-check-label" for="essentialShift">
+                        Essential Shift
+                      </label>
                     </div>
                 </div>
                 <legend class="pt-3">Equipment</legend>

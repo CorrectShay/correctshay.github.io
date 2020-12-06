@@ -44,19 +44,19 @@ function getShiftData(site) {
       cell1.innerHTML = doc.id;
       cell2.innerHTML = shift.role;
       cell2.className = 'text-left';
-      cell3.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Mon", shift.kronos.label) : shift.name; // If shift is not managed by kronos return then assigned name
+      cell3.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Mon", shift.kronos.label, shift.kronos.essentialShift) : shift.name; // If shift is not managed by kronos return then assigned name
       cell3.innerHTML === 'Not Found' ? cell3.className = 'bg-danger text-light' : null;
-      cell4.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Tue", shift.kronos.label) : shift.name;
+      cell4.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Tue", shift.kronos.label, shift.kronos.essentialShift) : shift.name;
       cell4.innerHTML === 'Not Found' ? cell4.className = 'bg-danger text-light' : null;
-      cell5.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Wed", shift.kronos.label) : shift.name;
+      cell5.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Wed", shift.kronos.label, shift.kronos.essentialShift) : shift.name;
       cell5.innerHTML === 'Not Found' ? cell5.className = 'bg-danger text-light' : null;
-      cell6.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Thu", shift.kronos.label) : shift.name;
+      cell6.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Thu", shift.kronos.label, shift.kronos.essentialShift) : shift.name;
       cell6.innerHTML === 'Not Found' ? cell6.className = 'bg-danger text-light' : null;
-      cell7.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Fri", shift.kronos.label) : shift.name;
+      cell7.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Fri", shift.kronos.label, shift.kronos.essentialShift) : shift.name;
       cell7.innerHTML === 'Not Found' ? cell7.className = 'bg-danger text-light' : null;
-      cell8.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Sat", shift.kronos.label) : shift.name;
+      cell8.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Sat", shift.kronos.label, shift.kronos.essentialShift) : shift.name;
       cell8.innerHTML === 'Not Found' ? cell8.className = 'bg-danger text-light' : null;
-      cell9.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Sun", shift.kronos.label) : shift.name;
+      cell9.innerHTML = (shift.kronos && shift.kronos.managedByKronos) ? kronosFind("Sun", shift.kronos.label, shift.kronos.essentialShift) : shift.name;
       cell9.innerHTML === 'Not Found' ? cell9.className = 'bg-danger text-light' : null;
       
       currentSite = site;      

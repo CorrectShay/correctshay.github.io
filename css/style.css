@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-tbody tr:hover td. tbody tr:hover {
+tbody tr:hover td {
   background-color: dodgerblue !important;
   color: white !important;
 }

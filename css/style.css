@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+tbody tr:hover td {
   background-color: dodgerblue !important;
   color: white !important;
 }

@@ -38,6 +38,8 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
             }
         })
 
+        console.log(rosterData);
+            
         var noKronos = document.getElementById('noKronosData');
         var haveKronos = document.getElementById('haveKronosData');
         noKronos.classList.add('collapse');

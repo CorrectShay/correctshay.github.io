@@ -60,7 +60,7 @@ function kronosFind(dayOfWeek, searchString) {
     if (rosterData && searchString !== "") {
         let result = rosterData.find(x => x[dayOfWeek] && String(x[dayOfWeek]).includes(searchString));
         
-        return result ? result.location : "Not Found"
+        return result ? result.Location : "Not Found"
     } else if (searchString === "") {
         return ""
     } else {

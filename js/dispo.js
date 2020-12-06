@@ -187,7 +187,7 @@ function resetModalForm() {
         
     uid.value = '';
     description.value = '';
-    unit.value = 'Select a unit;
+    unit.value = 'Select a unit';
     permanent.checked = false;
     kronos.checked = true;
     essential.checked = true;

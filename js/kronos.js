@@ -38,8 +38,6 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
             }
         })
 
-        getShiftData(e.value);
-
         var noKronos = document.getElementById('noKronosData');
         var haveKronos = document.getElementById('haveKronosData');
         noKronos.classList.add('collapse');

@@ -40,6 +40,10 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
 
         console.log(rosterData);
             
+        if (currentSite) {
+            getShiftData(currentSite);   
+        }
+            
         var noKronos = document.getElementById('noKronosData');
         var haveKronos = document.getElementById('haveKronosData');
         noKronos.classList.add('collapse');

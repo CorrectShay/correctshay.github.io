@@ -4,9 +4,8 @@ var weekDates;
     
 document.getElementById('fileUpload').addEventListener('change', (event) => {
     selectedFile = event.target.files[0];
-    var e = document.getElementById('siteSelect')
 
-    if (selectedFile && e.value !== '0') {
+    if (selectedFile) {
         var fileReader = new FileReader();
 
         fileReader.onload = (event) => {

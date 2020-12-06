@@ -165,6 +165,54 @@ function updateUnitSelect() {
     }
 }
 
+function resetModalForm() {
+    var description = document.getElementById('shiftDescription');
+    var unit = document.getElementById('shiftUnit');
+    var label = document.getElementById('kronosLabel');
+    var uid = document.getElementById('uid');
+    var permanent = document.getElementById('permanentShift');
+    var kronos = document.getElementById('kronosShift');
+    var essential = document.getElementById('essentialShift');
+    var radioCheck = document.getElementById('radioCheck');
+    var radioID = document.getElementById('radioID');
+    var keysCheck = document.getElementById('keysCheck');
+    var keysID = document.getElementById('keysID');
+    var icpCheck = document.getElementById('icpCheck');
+    var icpID = document.getElementById('icpID');
+    var obcCheck = document.getElementById('obcCheck');
+    var obcID = document.getElementById('obcID');
+    var restraintCheck = document.getElementById('restraintCheck');
+    var restraintID = document.getElementById('restraintID');
+    var docRef = db.collection(`prisons/${currentSite}/shifts`);
+        
+    uid.value = '';
+    description.value = '';
+    unit.value = 'Select a unit;
+    permanent.checked = false;
+    kronos.checked = true;
+    essential.checked = true;
+    label.value = '';
+
+    // Equipment Check Boxes
+    radioCheck.checked = false;
+    keysCheck.checked = false;
+    icpCheck.checked = false;
+    obcCheck.checked = false;
+    restraintCheck.checked = false;
+
+    // Equipment ID inputs
+    radioID.value = '';
+    radioID.disabled = true;
+    keysID.value = '';
+    keysID.disabled = true;
+    icpID.value = '';
+    icpID.disabled = true;
+    obcID.value = '';
+    obcID.disabled = true;
+    restraintID.value = '';
+    restraintID.disabled = true; 
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   
 });
@@ -230,6 +278,10 @@ shiftModal.addEventListener('shown.bs.modal', (e) => {
     }).catch( (error) => {
       console.log("Error getting document: ", error);
     });
+});
+
+shiftModal.addEventListener('hidden.bs.modal', (e) => {
+    resetModalForm();
 });
 
 

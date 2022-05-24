@@ -86,3 +86,47 @@ function getWeekDates(startDate) {
     }
     return "Not a Date"
 }
+
+function crateBlackFirestoreData() {
+    const batch = db.batch()
+
+    for (var i = 3; i = 10; i++) {
+        var ref = db.collection('prisons').doc('ocf').collection('shifts').doc(i.toString());
+
+        batch.set(ref, {
+            name: '',
+            role: 'Empty Shift',
+            unit: '',
+            kronos: {
+                managedByKronos: false,
+                essentialShift: false,
+                label: ''
+            },
+            equipment: {
+                keys: {
+                    required: false,
+                    keyid: ''
+                },
+                obc: {
+                    required: false,
+                    obcid: ''
+                },
+                icp: {
+                    required: false,
+                    icpid: ''
+                },
+                radio: {
+                    required: false,
+                    radioid: ''
+                },
+                restraints: {
+                    required: false,
+                    restraintid: ''
+                }
+            }
+        })
+    }
+
+    return batch.commit();
+
+}

@@ -4,9 +4,8 @@ var weekDates;
     
 document.getElementById('fileUpload').addEventListener('change', (event) => {
     selectedFile = event.target.files[0];
-    var e = document.getElementById('siteSelect')
 
-    if (selectedFile && e.value !== '0') {
+    if (selectedFile) {
         var fileReader = new FileReader();
 
         fileReader.onload = (event) => {
@@ -39,8 +38,12 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
             }
         })
 
-        getShiftData(e.value);
-
+        console.log(rosterData);
+            
+        if (currentSite) {
+            getShiftData(currentSite);   
+        }
+            
         var noKronos = document.getElementById('noKronosData');
         var haveKronos = document.getElementById('haveKronosData');
         noKronos.classList.add('collapse');
@@ -52,12 +55,12 @@ document.getElementById('fileUpload').addEventListener('change', (event) => {
     }
 });
 
-function kronosFind(dayOfWeek, searchString) {
+function kronosFind(dayOfWeek, searchString, essential) {
     // Check Kronos Data exists and is not null
     if (rosterData && searchString !== "") {
         let result = rosterData.find(x => x[dayOfWeek] && String(x[dayOfWeek]).includes(searchString));
         
-        return result ? result.name : "Not Found"
+        return result ? result.Location : essential ? 'Not Found' : ''
     } else if (searchString === "") {
         return ""
     } else {

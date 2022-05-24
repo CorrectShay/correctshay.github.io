@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Web Dispo</title>
     
+    <title>Web Dispo</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="bg-secondary">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -47,9 +47,12 @@
     </div>
     
     <div class="container-fluid">
-
+        <div class="mt-2">
+          <label for="fileUpload" class="form-label text-light">Upload Kronos Shift Label Report</label>
+          <input class="form-control" type="file" id="fileUpload">
+        </div>
         <div class="table-responsive">
-          <table class="table text-center table-hover table-light mt-4" id="weekTable">
+          <table class="table text-center table-light mt-4" id="weekTable">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
@@ -70,19 +73,137 @@
         </div>
     </div>
 
-    <div class="modal" tabindex="-1">
+    <div class="modal fade" id="shiftModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+          <div class="modal-header bg-primary text-light">
+            <h5 class="modal-title" id="shiftLModalLabel">Edit Shift Settings</h5>
             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
+                <legend>General Shift Details</legend>
+                <div class="row g-2">
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="uid" placeholder="e.g. 001" >
+                      <label for="shiftDescription">UID - Unique ID</label>
+                    </div>
+                  </div>
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="shiftDescription" placeholder="e.g. 8-18 Runner 1" >
+                      <label for="shiftDescription">Shift Description</label>
+                    </div>
+                </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="shiftType" id="permanentShift" value="permanent" checked>
+                      <label class="form-check-label" for="permanentShift">
+                        Permanently Allocated Shift
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="shiftType" id="kronosShift" value="kronos">
+                      <label class="form-check-label" for="kronosShift">
+                        Kronos Managed Shift
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="essentialShift">
+                      <label class="form-check-label" for="essentialShift">
+                        Essential Shift
+                      </label>
+                    </div>
+                    <div class="row g-2">
+                      <div class="col-md">
+                        <div class="form-floating">
+                          <select class="form-select" id="shiftUnit" aria-label="Select Unit">
+                            <option selected>Select a unit</option>
+                          </select>
+                          <label for="shiftUnit">Unit for Grouping</label>
+                        </div>
+                      </div>
+                      <div class="col-md">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="kronosLabel" placeholder="e.g. SEC-PCO" >
+                          <label for="shiftDescription">Kronos Label / Name</label>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <legend class="pt-1">Equipment</legend>
+                <div class="d-flex align-items-center pt-1">
+                    <div class="col-md">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="radioCheck" onchange="document.getElementById('radioID').disabled = !this.checked;">
+                          <label class="form-check-label" for="radioCheck">Radio Assigned</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" disabled id="radioID" placeholder="e.g. 016">
+                          <label for="radioID">Radio Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center pt-1">
+                    <div class="col-md">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="keysCheck" onchange="document.getElementById('keysID').disabled = !this.checked;">
+                          <label class="form-check-label" for="keysCheck">Keys Assigned</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" disabled id="keysID" placeholder="e.g. 016">
+                          <label for="keysID">Key Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center pt-1">
+                    <div class="col-md">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="icpCheck" onchange="document.getElementById('icpID').disabled = !this.checked;">
+                          <label class="form-check-label" for="icpCheck">ICP Required</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" disabled id="icpID" placeholder="e.g. 254685">
+                          <label for="icpID">ICP Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center pt-1">
+                    <div class="col-md">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="obcCheck" onchange="document.getElementById('obcID').disabled = !this.checked;">
+                          <label class="form-check-label" for="obcCheck">OBC Required</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" disabled id="obcID" placeholder="e.g. L1234">
+                          <label for="obcID">OBC Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center pt-1 pb-2">
+                    <div class="col-md">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="restraintCheck" onchange="document.getElementById('restraintID').disabled = !this.checked;">
+                          <label class="form-check-label" for="restraintCheck">Handcuffs Required</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" disabled id="restraintID" placeholder="e.g. R7">
+                          <label for="restraintID">Handcuffs Number</label>
+                        </div>
+                    </div>
+                </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" onClick="submitModal()" data-dismiss="modal">Save changes</button>
           </div>
         </div>
       </div>
